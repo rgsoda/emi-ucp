@@ -74,7 +74,7 @@ compose_message(Header, Body) ->
     UcpMessageStr = binary:bin_to_list(binary:list_to_bin(UcpMessage)),
     CRC = calculate_crc(UcpMessageStr),
     CompleteUcpMessage =  UcpMessageStr++CRC,
-    <<?STX,CompleteUcpMessage,?ETX>>.
+    binary:list_to_bin([?STX,CompleteUcpMessage,?ETX]).
 
 
 
