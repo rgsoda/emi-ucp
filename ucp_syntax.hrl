@@ -89,7 +89,7 @@
           %% 2 = response
           cpg = "", %% (reserved for Code Page)
           rply = "", %% (reserved for Reply type)
-          otoa="1139", %% Originator Type Of Address:
+          otoa="5039", %% Originator Type Of Address:
           %% 1139 The OadC is set to NPI telephone and TON international.
           %% 5039 The OAdC contains an alphanumeric address (see OAdC and below).
           %% Leave OTOA empty for a numeric address in the OAdC.
@@ -181,6 +181,20 @@
           lnpi = "",
           res1 = "",
           res2 = "",
+          crc = ""
+         }).
+
+-record(ucp31,{
+          adc = "", %% Address code for the SMT, maximum length is 16 digits.
+          pid = "", %% SMT 0100	Mobile Station
+          %% 0122	Fax Group 3
+          %% 0131	X.400
+          %% 0138	Menu over PSTN
+          %% 0139	PC appl. via PSTN
+          %% 0339	PC appl. via X.25
+          %% 0439	PC appl. via ISDN
+          %% 0539	PC appl. via TCP/IP
+          %% 0639.....PC appl. via abbreviated number
           crc = ""
          }).
 

@@ -2,6 +2,14 @@
 -author('rafal.galczynski@jtendo.com').
 -export([ascii_to_gsm/1, gsm_to_ascii/1]).
 
+%%--------------------------------------------------------------------
+%% @private
+%% @doc
+%% Function converting Ascii Num  into IRA Char
+%%
+%% @spec ascii_to_gsm(Char) -> Ira HexStr
+%% @end
+%%--------------------------------------------------------------------
 
 ascii_to_gsm(Int) ->
     case lists:keyfind(hex:int_to_hexstr(Int),1,ia5_alphabet()) of
@@ -10,6 +18,15 @@ ascii_to_gsm(Int) ->
         false ->
             Int
     end.
+
+%%--------------------------------------------------------------------
+%% @private
+%% @doc
+%% Function converting IRA HexStr into CharStr
+%%
+%% @spec ascii_to_gsm(Char) -> Ira HexStr
+%% @end
+%%--------------------------------------------------------------------
 
 gsm_to_ascii(HexStr) ->
     case lists:keyfind(string:to_upper(HexStr),1,
